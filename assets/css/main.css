@@ -157,18 +157,20 @@
 		}
 
 	h2 {
-		font-size: 2em;
+		font-size: 1.75em!important;
 		line-height: 1.5em;
-		letter-spacing: -0.035em;
-        font-family:'Lora';
-        font-style:italic;
-        text-transform:lowercase;
+		letter-spacing: 0.07em;
+        text-transform:uppercase;
         color:#444;
+        font-weight:700;
 	}
 
 	h3 {
-		font-size: 1.75em;
+		font-size: 1.5em;
 		line-height: 1.5em;
+        font-family:'Lora';
+        font-style:italic;
+        color:#444;
 		letter-spacing: -0.025em;
 	}
 
@@ -2368,6 +2370,10 @@
 				}
 
 
+        span.image.featured {
+            max-height:10em;
+            overflow:hidden;
+        }
 /* Icon */
 
 	.icon {
@@ -3413,7 +3419,41 @@
             padding:0!important;
         }
 
+.mini {
+    text-transform:uppercase;
+    font-weight:600;
+    font-size:.9em;
+    font-style:normal;
+    padding-right:10px;
+}
 
+.hyp {
+    display:block;
+    margin-bottom:1em;
+    margin-left:5em;
+}
+
+.hyp:last-child {margin-bottom:0;}
+
+.hypcount { counter-reset: hypothesis; }
+
+.hyp:before {
+    counter-increment: hypothesis;
+    content: counter(hypothesis);
+    color:#444;
+    border-radius:100%;
+    padding:.2em .75em;
+    border:1px solid #ccc;
+    font-weight:700;
+    display:inline-block;
+    margin-left:-4em;
+    margin-right:1.7em;
+}
+
+.hyp li {
+    margin-left:2em;
+    list-style-type:circle;
+}
 /* Wide */
 
 	@media screen and (max-width: 1680px) {

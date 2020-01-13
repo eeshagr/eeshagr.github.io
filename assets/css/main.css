@@ -3771,9 +3771,13 @@
 a.next {
     font-size:1.3em;
     color:#444;
-    font-family:'Lora';
+    text-align:center;
+    width:100%;
+    font-weight:600;
+    border:0;
+    display:block;
     font-style:italic;
-    margin-top:3em;
+    margin:3em auto;
     
 }
 

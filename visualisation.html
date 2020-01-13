@@ -67,190 +67,27 @@
 				<section id="main" class="container">
 					<header>
 						<h2>Visualisation</h2>
-					
 					</header>
                     
 					<div class="box">
                         <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-                    <h3>Retrieving Billboard data</h3>
+                    
+                    <p>We chose to work with Billboard Hot 100 Data due to the wide representation that it portrays.</p> 
+                    
+                    <h3>Methodology - Visualisations</h3>
+                    
+                    <p>Since we aimed to present our data in an interactive and accessible manner, while having limited coding experience, we opted to code in Python and using Plotly packages. Plotly allowed us to have to visualise the values in graphs when hovering over it but also allowed the user to engage with the graph by focusing on certain aspects such as time periods.</p>
                         
-                    <p>
-                    This program scrapes the Billboard music chart website and records the Hot 100 songs every week within a certain period.
-                    </p><p>
-                    The program uses Beautiful Soup for webscraping. The datetime module is also used to compare and iterate time, while the time module is used to delay the looping so that the IP address won’t be blocked.
-                    </p>
-                    <h4>Inputs and outputs</h4>    
-                    <div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Inputs</th>
-													<th>Outputs</th>
-													
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><li>The date you want to start scraping from (start date)</li>
-                                                    <li>The date you want to scrape until (end date)</li>
-                                                    </td>
-													<td>For the 100 top Billboard songs per week:
-                                                    <li>rank, date, song name, artist names, previous week rank, peak rank, total weeks on chart (written into CSV file)</li>
-                                                    </td>
-													
-												</tr>
-											</tbody>
-										</table>
-									</div>
-						
-                        <h4>Time functions</h4>
-                        
-                        <p>The following three functions are used throughout the code to compare and iterate time: </p>
-
-                        <p><i>readTime</i> - converts a date from a string to a datetime value</p>
-<pre>def readTime(ti):
-    return (dt.datetime.strptime(ti, "%Y-%m-%d")).date()</pre>
-                        <p><i>rereadTime</i> - reads in a date (string/datetime) and reformats it</p>
-<pre>def rereadTime(ti):
-    reread = str(ti)
-    return (dt.datetime.strptime(reread, "%Y-%m-%d")).date()</pre>
-                        <p><i>incrementTime</i> - increments time (string/datetime) by a week</p>
-<pre>def incrementTime(ti):
-    return (rereadTime(ti) + dt.timedelta(weeks=1))</pre>
-                        
-                        <h4>Scrape function</h4>
-                        <p>The <i>scrape</i> function takes in a date and a CSV file name to scrape the Hot 100 songs for the given date and write in the necessary data into the given csv file. By looking at the html code of the Billboard website, we were able to extract the classes for the necessary data.</p>
-                        
-                        <ul style="list-style-type:decimal-leading-zero">
-                            <li>Append inputted date to url
-<pre>url = ("https://www.billboard.com/charts/hot-100/"+str(date)).rstrip()</pre>
-                            </li>
-                            <li>Use Beautiful Soup to to find Hot 100 song data
-<pre>allData = soup.findAll("span", {"class": "chart-element__information"})</pre>
-                            </li>
-                            <li>If there is valid Hot 100 song data, for all 100 songs:
-                               <ul style="list-style-type:lower-roman">
-                                   <li>Retrieve and format song data, eg.
-<pre># FIND SONG NAME AND ARTIST NAME
-            songName = allData[i].find("span", {"class": songClass}).text
-            artistName = allData[i].find("span", {"class": artistClass}).text</pre>
-                                   </li>
-                                   <li>Append song data into inputted CSV file
-                                   </li>
-                               </ul>
-                            </li>
-                            <li>If there is no valid Hot 100 song data: exit loop
-                            </li>
+                    <h4>Line graph: Number of artist names’ appearances on the top chart from 1980 to 2019
+                    </h4>
+                    
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> In our project, we used line graphs mainly in order to express trends that arose from top charts, Billboard Hot 100 Data, throughout time. The purpose of this plot is to determine whether the diversity of artists in top charts has fluctuated since the prevail of streaming services. 
+                        </li>
+                        <li><i>How did we do it:</i> In the Billboard Hot 100 data, we have the name of the artists that have appeared on the chart for each week from 1980 to 2019. Therefore, the number of times an artist's name appears translates to how much he was listened to, how popular he was with the general public. For a more detailed explanation of the code used to do the visualisation, click here. 
+                        </li>
                         </ul>
-                        <h4>Execution of functions</h4>
-                        <p>A while loop is used to increment the start date every week until the date exceeds the end of the period. The <i>scrape</i> function is placed within this loop, causing the Billboard website to be scraped every week. After the scrape function is run, the program is delayed to prevent the IP address from being blocked.</p>
-<pre># WHILE DATE &lt; END DATE, SCRAPE
-
-while date &lt; scrapeUntil:
-    scrape(date, fileName)
-
-    # WAIT FOR A WHILE
-    time.sleep(abs(np.random.normal(5)))
-
-    # INCREMENT DATE
-    date = incrementTime(date)</pre>
-                        <hr>
-                        <h3>Retrieving Spotify data</h3>
-                        
-                        <p>Two programs were used to retrieve spotify audio features for Billboard Hot 100 songs. The first program, webscrapeSpotifyPlaylists.py, was used to scrape specified spotify playlists from a chosen user, retrieving the song URIs of every song in the playlists. The second program read these song URIs and retrieved the Spotify audio features. 
-                        </p>
-                        <p>
-                        Both programs use the <a href="https://spotipy.readthedocs.io/en/latest/">spotipy</a> module, which is a library for using the Spotify Web API.
-                        </p>
-                        <div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Playlist data</th>
-													<th>Granularity</th>
-                                                    
-                                                    <th>Source (Spotify user)</th>
-													
-												</tr>
-											</thead>
-											<tbody>
-												<tr>                <td>Billboard Year End Hot 100 songs
-                                                    </td>
-                                                    <td>Per year (‘80s-current)</td><td>stealthamo</td>
-												</tr>
-                                                <tr> <td>Billboard Hot 100 songs
-                                                    </td>
-                                                <td>Per decade (‘60s-current)</td> <td>wormwood37</td>
-                                                </tr>
-											</tbody>
-										</table>
-									</div>
-                        <h4>Inputs and outputs</h4>
-                        <div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Inputs</th>
-													<th>Outputs</th>
-													
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><li>Spotify user URI</li>
-                                                    <li>Key phrase (if the key is in the playlist name, the playlist will be scraped)</li>
-                                                    </td>
-													<td>For all songs in playlists containing key:
-                                                    <li>Song name</li>
-                                                    <li>Song URI
-                                                    </li>
-                                                        (written into CSV file)
-                                                    </td>
-													
-												</tr>
-											</tbody>
-										</table>
-									</div>
-                        <h4>Retrieval of playlist data</h4>
-                        <p>First, the playlist data, most importantly the URIs of the chosen playlists, are found and saved into separate lists.
-                        </p>
-                        <p>An issue was that the spotipy function user_playlists only searches the 50 latest playlists for a user and therefore cannot be used reliably. To ensure that every playlist is obtained, the function <i>get_playlist</i> indexes through every playlist manually.</p>
-<pre>def get_playlist(username):
-    results = sp.user_playlists(username)
-    playlists = results['items']
-    while results['next']:
-        results = sp.next(results)
-        playlists.extend(results['items'])
-    return playlists</pre>
-                        <p>To search for playlists, we run the get_playlist function, inputting a username URI.</p>
-<pre>playlists = get_playlist(user)</pre>
-                        <p>After obtaining the playlist data, conditionally select playlists that have the key in it. Then select playlists that include songs from 1980 or later. Append the year of the playlist and playlist URI to separate lists.</p>
-<pre># FOR EVERY PLAYLIST:
-for i in range(len(playlists)):
-    # IF KEY PHRASE IS IN PLAYLIST NAME:
-    if key in playlists[i]['name']:
-        # FIND THE YEAR IN PLAYLIST NAME
-        year = int(playlists[i]['name'][:4]) # year = first 4 strings in playlist name
-        # TAKE ONLY PLAYLISTS OF BILLBOARD DATA AFTER 1980
-        if year >= 1980:
-            # APPEND YEAR, PLAYLIST NAME, PLAYLIST URI TO RELEVANT LISTS
-            playlistYear.append(year)
-            playlistURIs.append(playlists[i]['uri'])</pre>
-                        <h4>Searching Spotify for song data</h4>
-                        <p>After obtaining the playlist URIs of the playlists chosen for scraping, we loop through each playlist to get the song URIs of every song.</p>
-                        <p>Similar to user_playlist, we discovered that the spotipy function user_playlist_tracks only retrieves data from the first 100 songs in a playlist. Therefore, the function <i>get_playlist_tracks</i> was made to index through every song using a while loop. </p>
-<pre>def get_playlist_tracks(username,playlist_id):
-    results = sp.user_playlist_tracks(username,playlist_id)
-    tracks = results['items']
-    while results['next']:
-        results = sp.next(results)
-        tracks.extend(results['items'])
-    return tracks</pre>
-                        <hr>
-                        <h3>Creating our website</h3>
-				        To form our initial ideas, as a group we went through several websites and individually identified features we wanted in our own site. We concluded that it was important to present our findings in a format that was clear, well-structured and easy to follow. We chose to host our site on Github as we felt it would give us more control over the presentation of our findings than using a service like Wordpress or Wix. Beginning with a template from <a href="https://html5up.net/">html5up</a>, this was edited to fit the sketches we created to outline the basic structure of the site. 
-                       
-                        
+                        <p>However, the mean does not tell the full story since it only shows an overall value. Hence, we decided to create an additional boxplot graph to show the outliers that may have hugely influenced the means.</p>
 					</div>
                     <a class="next" href="consumption.html">What conclusions can we draw about music consumption?</a>
 				</section>

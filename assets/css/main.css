@@ -175,9 +175,11 @@
 	}
 
 	h4 {
-		font-size: 1.1em;
+		font-size: 1.2em;
 		line-height: 1.5em;
 		letter-spacing: 0;
+        font-weight:700;
+        color:#444;
 	}
 
 	h5 {
@@ -2722,6 +2724,8 @@
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
 		}
+        
+        table.alt th { padding-left:0; }
 
 		table thead {
 			border-bottom: solid 2px #e5e5e5;
@@ -3410,6 +3414,7 @@
             color:#444;
             text-align:center;
         }
+
         .entry {
             display:block;
             padding-bottom:2em!important;

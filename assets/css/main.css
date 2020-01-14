@@ -123,12 +123,14 @@
 		-ms-transition:  0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition:  0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #97bee6;
+		color: #222;
+        font-weight:700;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
+            color:#666;
 		}
 
 	strong, b {
@@ -160,7 +162,7 @@
 		font-size: 1.5em;
 		line-height: 1.5em;
 		letter-spacing: -0.025em;
-        text-transform:lowercase;
+        text-transform:none;
         color:#444;
         font-weight:700;
         text-align:left;
@@ -2995,10 +2997,13 @@
 			vertical-align: middle;
 		}
 
+       
+
 			#header nav > ul {
 				list-style: none;
 				margin: 0;
 				padding-left: 0;
+                
 			}
 
 				#header nav > ul > li {
@@ -3217,7 +3222,7 @@
             font-style:normal;
             font-family:'Lato';
             letter-spacing:0;
-            text-transform:lowercase;
+            text-transform:none;
             font-weight:700;   
 		}
 

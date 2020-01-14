@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://kit.fontawesome.com/4573bcadd3.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -70,26 +71,61 @@
 					</header>
                     
 					<div class="box">
-                        <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
                     
-                    <p>We chose to work with Billboard Hot 100 Data due to the wide representation that it portrays.</p> 
-                    
-                    <h3>Methodology - Visualisations</h3>
-                    
-                    <p>Since we aimed to present our data in an interactive and accessible manner, while having limited coding experience, we opted to code in Python and using Plotly packages. Plotly allowed us to have to visualise the values in graphs when hovering over it but also allowed the user to engage with the graph by focusing on certain aspects such as time periods.</p>
-                        
-                    <h4>Line graph: Number of artist names’ appearances on the top chart from 1980 to 2019
+                    <h4>Line graph: Number of new artists breaking into the billboard top 100 every year
                     </h4>
-                    
                         <ul>
-                        <li><i>Why did we choose this visualisation:</i> In our project, we used line graphs mainly in order to express trends that arose from top charts, Billboard Hot 100 Data, throughout time. The purpose of this plot is to determine whether the diversity of artists in top charts has fluctuated since the prevail of streaming services. 
+                        <li><i>Why did we choose this visualisation:</i> A line graph was chosen for the initial stage of our investigation because it is a simple and effective way of visualising evolution over time. It allows us to identify the basic trend that the data follows from 1980-2019, as well as any specific changes that occurred once streaming was introduced. 
                         </li>
-                        <li><i>How did we do it:</i> In the Billboard Hot 100 data, we have the name of the artists that have appeared on the chart for each week from 1980 to 2019. Therefore, the number of times an artist's name appears translates to how much he was listened to, how popular he was with the general public. For a more detailed explanation of the code used to do the visualisation, click here. 
+                        <li><i>How did we do it:</i> In the Billboard Hot 100 data, we have the name of the artists that have appeared on the chart for each week from 1980 to 2019. Using this data we planned to mark the first appearance of every artist on the chart, and then count the number of first appearances each year as a representation of the number of new artists breaking into the Billboard Hot 100 each year. Before beginning, we realised that any results we produce from our existing data set would be a misrepresentation, because for the initial entries in our data set all artists would appear to be new artists. To overcome this we ran the web scraping code once again, to collect Billboard data from 1960-1980. We then imported the 1960-80 data and the 1980-2019 data as date frames. Next, we merged the two data sets, using the concat function of the Pandas library, creating a data frame with 1960-2019 Billboard data. Following this we used Pandas’ groupby function to group the data by artist's name and select the  first element of each group to represent the first appearance of each artist. Initially we intended to use this data to create our line graph. However, once we looked at the raw data we found that songs by multiple artists registered as new debuts, thus greatly skewing the data. We attempted to combat this by removing all entries that had ‘Featuring’ and ‘&’ in the string under artist name. Thereafter, the date information in the data frame was converted to datetime format using the datetime library. This allowed us to select our desired years (1980-2019), and then group the data by year. We then counted the size of each group to represent the number of breakout artists on the chart each year. This data was then plotted on a line graph using Plotly.
                         </li>
                         </ul>
-                        <p>However, the mean does not tell the full story since it only shows an overall value. Hence, we decided to create an additional boxplot graph to show the outliers that may have hugely influenced the means.</p>
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/17.embed"></iframe> 
+                    </div>
+                    <div class="box">
+
+                    <h4>Line graph: Average number of weeks that songs spend on the billboard top 100 every year </h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> A line graph was chosen for the preliminary stage of our investigation because it is a simple and effective way of visualising evolution over time. We choose to use yearly averages through a process of elimination. Initially, we attempted to display the data by taking weekly averages, as we thought that having a greater number of data points would increase the accuracy of our research. However, once we obtained the graph it became evident that the visualisation had too much static, thus making it counterintuitive to the simplicity we desired from the graph.
+                        </li>
+                        <li><i>How did we do it:</i> To make the graph we used jupyter notebooks and three python libraries: pandas, dateutil, and plotly.  Firstly, we created a data frame with the billboard data through the pandas library. Using dateutil we then converted the date information in our data set from string to datetime format. This, in combination with the pandas' groupby function, allowed us to group the data by year, and find the mean number of weeks on chart for each group. The resulting data frame had yearly averages of the number of weeks songs spend on the chart, which we plotted on a line graph using plotly. 
+                        </li>
+                        </ul>
+
+                    <div style="display:inline-block;height:430px;width:500px;overflow:hidden"><iframe id="frame2" width="1000" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/3.embed"></iframe></div>
+                        
+                    <div style="display:inline-block;height:430px;width:500px;overflow:hidden"><iframe id="frame2" width="1000" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/9.embed"></iframe></div>
+                        
+                    </div>
+                    <div class="box">
+                    <h4>Histograms: Average number of weeks that songs spend on the billboard top 100 every year and the number of new artists breaking into the billboard top 100 every year</h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> Once we had understood the basic trend by interpreting the line graph, we wanted to investigate the consequences of introducing streaming services more closely. To do this we choose to make histograms of the post and pre streaming data. The distinction between the two was set at 2007, the year Billboard started incorporating data from streaming services <b>**SOURCE THIS**</b>. Histograms were selected for this exploration so we could compare the distributions of pre and post streaming data. Furthermore, histograms also inform what statistical test can be carried out on the data.
+                        </li>
+                        <li><i>How did we do it:</i> To construct the histograms we first created two new data sets, one with the pre streaming data and the second with the post streaming data. This was done by selecting sections from the data frame used to create the line graphs, by utilising the iloc function of the pandas library. The new data frames were then plotted as layered histograms using Plotly.
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                    <h4>T-test: Number of new artists breaking into the billboard top 100 every year</h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> While analysing the differences between the pre and post streaming histograms, we wanted to carry out a statistical test to check whether the variation between the two was significant. To do this we decided to use a <a href="https://www.investopedia.com/terms/t/t-test.asp">t-test</a>, as it compares the average values of two samples to determine whether they came from the same population. Furthermore, the histograms for this consumption feature showed that both the post and pre streaming data had approximately normal distributions, which is a condition that must me be satisfied to carry out a t-test. 
+                        </li>
+                        <li><i>How did we do it:</i> The test was carried out on the two groups of data used to build the histograms by employing scipy, a python library with an inbuilt module for conducting a t-test. The resulting test statistic and p-value was then displayed on a table using Plotly. 
+                        </li>
+                        </ul>
 					</div>
-                    <a class="next" href="consumption.html">What conclusions can we draw about music consumption?</a>
+                    <div class="box">
+                        <h4>Wilcoxon-Mann-Whitney  test: Average number of weeks that songs spend on the billboard top 100</h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> Similar to the occurrence of breakout artists, when analysing the histograms of pre and post streaming data we wanted to conduct a statistical test to check the significance of our results. However, in this case once the histograms had been developed we found that the pre streaming data did not follow a normal distribution. This meant that we could not use a t-test for this analysis. After conducting some research into different types of statistical tests we decided to use a <a href="https://stats.idre.ucla.edu/stata/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-stata/#wilc">Wilcoxon-Mann-Whitney test</a>. We chose this test because it is an analog to the two-sample t-test, that does not assume the data sets being used are normally distributed.
+
+                        </li>
+                        <li><i>How did we do it:</i> The test was carried out on the two groups of data used to build the histograms by employing scipy, a python library with an inbuilt module for conducting a t-test. The resulting test statistic and p-value was then displayed on a table using Plotly. 
+                        </li>
+                        </ul>
+                    </div>
+                    <a class="next" href="consumption.html"><i class="fas fa-chevron-right"></i> What conclusions can we draw about music consumption?</a>
 				</section>
 
 			<!-- Footer -->

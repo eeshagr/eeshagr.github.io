@@ -1976,7 +1976,7 @@
 	.container {
 		margin: 0 auto;
 		max-width: calc(100% - 5em);
-		width: 60em;
+		width: 65em;
 	}
 
 		.container.xsmall {
@@ -2262,6 +2262,7 @@
 		border-radius: 6px;
 		margin: 0 0 2em 0;
 		padding: 3em;
+        position:relative;
 	}
 
     .box:nth-of-type(1) { background:rgba(51,153,255,.1); }
@@ -3851,6 +3852,27 @@ ul.tablefeat li {
     width:45%;
     display:inline-block;
 }
+
+
+    #frame {
+        -ms-zoom: 0.75;
+        -moz-transform: scale(0.75);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.75);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.75);
+        -webkit-transform-origin: 0 0;
+    }
+
+    #frame2 {
+        -ms-zoom: 0.5;
+        -moz-transform: scale(.5);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.5);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+    }
 
 
 

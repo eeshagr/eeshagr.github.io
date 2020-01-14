@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://kit.fontawesome.com/4573bcadd3.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -70,13 +71,46 @@
 					
 					</header>
 					<div class="box">
+                        <h3>breakout artists</h3>
+                       <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/11.embed"></iframe>
+                        <p><br>This line graph shows that from 1980 to 2019 there has been a general decrease in the number of new artists that break into the billboard top 100. The frequency of breakout artists has more than halved, falling from 110 in 1980 to 54 in 2019. The biggest change between any two consecutive years occurred between 1980 and 1999, when the frequency fell from 122 to 73. Noticeably, the period after 1999 displays a decreasing trend, matching the overall trend of the graph. However, the period before 1999 appears to have an increasing trend, suggesting something significant happened in the year 1999 to shift the trend. Following the introduction of streaming services in 2007, there is a general decreasing trend, with the frequency of breakout artists reaching its minimum value, 52, in 2010 and 2012. </p>
+                        
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/13.embed"></iframe>
+                        <p><br>The histograms for the number of breakout artists before and after the introduction of streaming services show that the two distributions have minimal overlap and are largely distinct. The pre-streaming data has a greater spread, covering frequencies between 54 and 125. The post streaming data, on the other hand, covers frequencies between 52 and 79, and is also slightly skewed towards the lower frequency values. To check whether these differences are significant we can conduct a t-test.</p>
+                        
+                        <iframe width="100%" height="110" frameborder="0" scrolling="no" src="//plot.ly/~apara02/15.embed"></iframe>
+                        <p><br>Null hypothesis: There is no difference between the mean number of artists breaking into the billboard top 100 every year before and after the introduction of streaming services.<br>
+                        Alternate hypothesis: The mean number of artists breaking into the billboard top 100 every year was higher before the introduction of streaming services.
+                        <br> 8.54e-08 &lt; 0.05 : As the calculated p-value is less than 0.05 we can reject the null hypothesis and accept the alternative hypothesis. There is evidence to conclude that the number of artists breaking into the billboard top 100 was higher before the introduction of streaming services.
+
+                        </p>
+                        <!--MALINA
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
                         
-                       <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/23.embed"></iframe>
+                       <div style="height:470px;overflow:hidden;"><iframe id="frame" width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/23.embed"></iframe></div>
                          
-                       <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/21.embed"></iframe>
+                       <div style="height:650px;overflow:hidden"><iframe id="frame" width="100%" height="780" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/21.embed"></iframe></div>
+                        -->
+                        <!--TIFFANY NEW
+                        <div style="height:620px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/39.embed"></iframe></div>
+                        
+                        <div style="height:580px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/30.embed"></iframe></div>
+                        -->
 					</div>
-                    <a class="next" href="production.html">What conclusions can we draw about music production?</a>
+                    <div class="box">
+                        <h3>weeks on chart</h3>
+                        
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/9.embed"></iframe>
+                        <p><br>Overall, the line graph shows an increasing trend in the number of weeks songs spend on the billboard top hundred. While the trend shows constant fluctuation from year to year, there are two elements of particular interest. The first being from the years 2000-2011 where there is minimal fluctuation in the data, suggesting that the average number of weeks songs spend on the chart was plateauing or stabilizing. Secondly, the graph shows this plateau was broken by a significant jump between 2011-2012. This increase is the most substantial increase between two consecutive years displayed on the graph. The 2012 spike is of particular interest to us because spotify user growth nearly tripled from 2011 to 2012. This leads us to speculate that streaming services may have played a role in increasing the average number of weeks that songs spend on the billboard top 100, an idea explored further through the following histogram. </p>
+                        
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/7.embed"></iframe>
+                        <p><br>The histograms for the number of weeks songs spend on the billboard top 100 before and after the introduction of streaming services show that the two distributions have some overlap but are fairly distinct. The pre-streaming data covers a greater range of weeks spent on the chart, including weekly averages between 5 and 15. On the other hand, the post-streaming data has a greater proportion of data points centered around higher weekly averages. To check whether these differences are significant we can carry out a Wilcoxon-Mann-Whitney test on the two data sets.</p>
+                        
+                        <iframe width="100%" height="110" frameborder="0" scrolling="no" src="//plot.ly/~apara02/22.embed"></iframe>
+                        
+                        <p><br>Null hypothesis: The distributions of pre and post streaming data are equal<br>Alternate hypothesis: The distributions of pre and post streaming data are not equal<br>Significance level is 5%<br>2.49e-160 &lt; 0.05 : As the calculated p-value is less than 0.005 we can reject the null hypothesis and accept the alternate hypothesis. The results show that there is a statistically significant difference between the distributions of the pre and post streaming data.</p>
+                    </div>
+                    <a class="next" href="production.html"><i class="fas fa-chevron-right"></i> What conclusions can we draw about music production?</a>
 				</section>
 
 			<!-- Footer -->

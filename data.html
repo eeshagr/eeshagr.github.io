@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://kit.fontawesome.com/4573bcadd3.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -72,35 +73,39 @@
 					</header>
 					<div class="box">
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-                        
+                        <h3>Spotify audio features</h3>
                         <div class="table-wrapper">
-										<table>
+										<table class="spotifyy">
 											<thead>
 												<tr>
 													<th>Feature</th>
 													<th>Description</th>
-													<th>Example: high</th>
-                                                    <th>Example: low</th>
+													<th style="width:110px!important;">Example: high</th>
+                                                    <th style="width:110px!important">Example: low</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
 													<td>Acousticness</td>
 													<td>A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.</td>
-													<td>spotify embed</td>
-                                                    <td>spotify embed</td>
+													<td><iframe src="https://open.spotify.com/embed/track/4222J8ROCEqgnnLqCC6Z7l" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                                                    <td><iframe src="https://open.spotify.com/embed/track/7fVlbM9hxmv3Omz4UPcsy8" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
 												</tr>
 												<tr>
 													<td>Danceability</td>
 													<td>Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.</td>
-													<td>^</td>
-                                                    <td>^</td>
+													<td><iframe src="https://open.spotify.com/embed/track/5YIF6HSOtHN9HdcE5IPzMe" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                                                    <td><iframe src="https://open.spotify.com/embed/track/454wC5PPsU0mPltiJqxDbz" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
 												</tr>
+                                                <tr>
+                                                    <td>Duration</td>
+                                                    <td>How long a song is in minutes.</td>
+                                                </tr>
 												<tr>
 													<td>Energy</td>
 													<td>Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.</td>
-													<td>^</td>
-                                                    <td>^</td>
+													<td><iframe src="https://open.spotify.com/embed/track/7onz7NG84z8mBQJ0f6p3f8" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                                                    <td><iframe src="https://open.spotify.com/embed/track/5GQAHsTo4DI71QLAXUo3DV" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
 												</tr>
 												<tr>
 													<td>Instrumentalness</td>
@@ -108,6 +113,8 @@
 													<td>^</td>
                                                     <td>^</td>
 												</tr>
+                                                <tr>
+                                                </tr>
 												<tr>
 													<td>Speechiness</td>
 													<td>Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks. </td>
@@ -124,6 +131,8 @@
 											<tr><td>source: <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/">Spotify</a></td></tr>
 										</table>
 									</div>
+                    </div>
+                    <div class="box">
                         
 <h3>Retrieving Billboard data</h3>
                         
@@ -183,10 +192,10 @@
                             </li>
                             <li>If there is valid Hot 100 song data, for all 100 songs:
                                <ul style="list-style-type:lower-roman">
-                                   <li>Retrieve and format song data, eg.
-<pre># FIND SONG NAME AND ARTIST NAME
-            songName = allData[i].find("span", {"class": songClass}).text
-            artistName = allData[i].find("span", {"class": artistClass}).text</pre>
+                                   <li>Retrieve and format song data, eg. to find song name and artist name:
+<pre>songName = allData[i].find("span", {"class": songClass}).text
+artistName = allData[i].find("span", {"class": artistClass}).text
+</pre>
                                    </li>
                                    <li>Append song data into inputted CSV file
                                    </li>
@@ -202,19 +211,16 @@
 while date &lt; scrapeUntil:
     scrape(date, fileName)
 
-    # WAIT FOR A WHILE
-    time.sleep(abs(np.random.normal(5)))
-
-    # INCREMENT DATE
-    date = incrementTime(date)</pre>
-                        <hr>
+    time.sleep(abs(np.random.normal(5))) # wait for a while
+    date = incrementTime(date) # increment date
+</pre>
+                    </div>
+                    <div class="box">
                         <h3>Retrieving Spotify data</h3>
                         
-                        <p>Two programs were used to retrieve spotify audio features for Billboard Hot 100 songs. The first program, webscrapeSpotifyPlaylists.py, was used to scrape specified spotify playlists from a chosen user, retrieving the song URIs of every song in the playlists. The second program read these song URIs and retrieved the Spotify audio features. 
+                        <p>This table details the two datasets obtained from this program.
                         </p>
-                        <p>
-                        Both programs use the <a href="https://spotipy.readthedocs.io/en/latest/">spotipy</a> module, which is a library for using the Spotify Web API.
-                        </p>
+                        
                         <div class="table-wrapper">
 										<table class="alt">
 											<thead>
@@ -238,6 +244,9 @@ while date &lt; scrapeUntil:
 											</tbody>
 										</table>
 									</div>
+                        <p>Why 2 datasets? The first dataset allows us to look into granular changes between years. However, since it only includes the top 100 Billboard songs of the year, there isn’t enough data to form accurate conclusions about general trends. The second dataset includes every Billboard Hot 100 song that appeared on the charts within a certain decade, which amounts to an average of 3720 songs per decade (372 songs per year). This dataset is therefore used to look at overall trends in audio features through decades, but not specific changes that could solely evidence a correlation between production choices and the introduction of streaming services.</p>
+                        <p>This program was used to scrape specified spotify playlists from a chosen user, retrieving the song URIs of every song in the playlists. Then, using song URIs, Spotify audio features for every song were searched and written into a CSV file. </p>
+                        <p>The <a href="https://spotipy.readthedocs.io/en/latest/">spotipy</a> module, a library for using the Spotify Web API, was used to search spotify for song data and audio features. </p>
                         <h4>Inputs and outputs</h4>
                         <div class="table-wrapper">
 										<table class="alt">
@@ -254,9 +263,27 @@ while date &lt; scrapeUntil:
                                                     <li>Key phrase (if the key is in the playlist name, the playlist will be scraped)</li>
                                                     </td>
 													<td>For all songs in playlists containing key:
-                                                    <li>Song name</li>
-                                                    <li>Song URI
+                                                    <li>Song name and song URI</li>
+                                                    <li>Artist name and artist URI
                                                     </li>
+                                                    <li>Song features:</li>
+                                                        <ul style="padding-left:3em;list-style-type:lower-roman;" class="tablefeat">
+                                                    
+                                                            <li>acousticness</li>
+                                                            <li>danceability</li>
+                                                            <li>energy</li>
+                                                            <li>instrumentalness</li>
+                                                            <li>liveness</li>
+                                                            <li>loudness</li>
+                                                            <li>speechiness</li>
+                                                            <li>tempo</li>
+                                                            <li>valence</li>
+                                                            <li>duration_ms</li>
+                                                            <li>mode</li>
+                                                            <li>key</li>
+                                                            <li>time_signature</li>
+                                                            <li>popularity</li>
+                                                        </ul>
                                                         (written into CSV file)
                                                     </td>
 													
@@ -277,31 +304,27 @@ while date &lt; scrapeUntil:
     return playlists</pre>
                         <p>To search for playlists, we run the get_playlist function, inputting a username URI.</p>
 <pre>playlists = get_playlist(user)</pre>
-                        <p>After obtaining the playlist data, conditionally select playlists that have the key in it. Then select playlists that include songs from 1980 or later. Append the year of the playlist and playlist URI to separate lists.</p>
-<pre># FOR EVERY PLAYLIST:
-for i in range(len(playlists)):
-    # IF KEY PHRASE IS IN PLAYLIST NAME:
-    if key in playlists[i]['name']:
-        # FIND THE YEAR IN PLAYLIST NAME
-        year = int(playlists[i]['name'][:4]) # year = first 4 strings in playlist name
-        # TAKE ONLY PLAYLISTS OF BILLBOARD DATA AFTER 1980
-        if year >= 1980:
-            # APPEND YEAR, PLAYLIST NAME, PLAYLIST URI TO RELEVANT LISTS
-            playlistYear.append(year)
-            playlistURIs.append(playlists[i]['uri'])</pre>
+                        <p>After obtaining the playlist data, the programme conditionally selects playlists that have the key in it. Then selects playlists that include songs from 1980 or later. It then appends the year of the playlist and playlist URI to separate lists.</p>
+
                         <h4>Searching Spotify for song data</h4>
                         <p>After obtaining the playlist URIs of the playlists chosen for scraping, we loop through each playlist to get the song URIs of every song.</p>
                         <p>Similar to user_playlist, we discovered that the spotipy function user_playlist_tracks only retrieves data from the first 100 songs in a playlist. Therefore, the function <i>get_playlist_tracks</i> was made to index through every song using a while loop. </p>
-<pre>def get_playlist_tracks(username,playlist_id):
-    results = sp.user_playlist_tracks(username,playlist_id)
-    tracks = results['items']
-    while results['next']:
-        results = sp.next(results)
-        tracks.extend(results['items'])
-    return tracks</pre>
-                        
+                        <p>To loop through every song of every playlist we use two for statements, one of them nested in the other.</p>
+                        <p>For every song, the song URI and the year on chart are appended to separate lists.</p>
+
+                        <h4>Retrieving song data and audio features (outputs)</h4>
+                        <p>Now that we have the URIs of every song, we use the URI to search for the audio features and append them to a CSV file. </p>
+                        <p>Again we use a for loop nested in a for loop to traverse through every song URI. The spotipy <i>track</i> function and <i>audio_features</i> function is used to retrieve data about an inputted song URI.  The former is used to retrieve the song name, and artist names, while the latter is used for audio features.</p>
+<pre>songData = sp.track(songURI)
+features = sp.audio_features(songURI)</pre>
+                        <p>If songs have more than one artist, we traverse through the artist names and artist URIs, appending them to single strings.</p>
+<pre>if len(songData['artists'])>1:
+    for j in range(len(songData['artists'])-1):
+        artistsNames += (";"+songData['artists'][j+1]['name'])
+        artistsURIs += (","+songData['artists'][j+1]['uri'])</pre>
+                        <p>Finally, we append all the necessary data into a CSV file. This includes: acousticness, danceability, energy, instrumentalness, liveness, loudness, speechiness, tempo, valence, duration_ms, mode, key, time_signature, popularity.</p>
                     </div>
-					<a class="next" href="visualisation.html">How did we visualise this data?</a>
+					<a class="next" href="visualisation.html"><i class="fas fa-chevron-right"></i> How did we visualise this data?</a>
 				</section>
 
 			<!-- Footer -->

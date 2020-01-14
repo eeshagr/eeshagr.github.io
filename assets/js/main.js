@@ -32,6 +32,13 @@
 		$('#nav > ul').dropotron({
 			alignment: 'right'
 		});
+    
+    // offset scroll
+        $('.clickity').click(function(){
+        $('html, body').animate({scrollTop : $(".migrate").offset().top 
+        },800);
+        return false;
+    });
 
 	// NavPanel.
 

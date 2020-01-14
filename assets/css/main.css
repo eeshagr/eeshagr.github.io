@@ -208,7 +208,7 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 2px #e5e5e5;
+		border-bottom: solid 1px #e5e5e5;
 		margin: 2em 0;
 	}
 
@@ -3446,6 +3446,17 @@
         .entry:last-child {
             padding:0!important;
         }
+
+.box:nth-child(1) { background:rgba(153,102,204,.1); }
+.box:nth-child(1) h3 { border-color:rgba(153,102,204,.6)!important; }
+
+
+.box:nth-child(3) { background:rgba(51,204,204,.1); }
+.box:nth-child(3) h3 { border-color:rgba(51,204,204,.6)!important; }
+
+.box:nth-child(2) { background:rgba(255,153,102,.1); }
+.box:nth-child(2) h3 { border-color:rgba(255,153,102,.6)!important; }
+
 
 .mini {
     font-family:'Raleway';

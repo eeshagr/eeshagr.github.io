@@ -68,8 +68,36 @@
 				<section id="main" class="container">
 					<header>
 						<h2>Consumption</h2>
-					
 					</header>
+                    <!--MALINA
+						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+                        
+                       <div style="height:470px;overflow:hidden;"><iframe id="frame" width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/23.embed"></iframe></div>
+                         
+                       <div style="height:650px;overflow:hidden"><iframe id="frame" width="100%" height="780" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/21.embed"></iframe></div>
+                        -->
+                        <!--TIFFANY NEW
+                        <div style="height:620px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/39.embed"></iframe></div>
+                        
+                        <div style="height:580px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/30.embed"></iframe></div>
+                        -->
+                    <div class="box">
+                        <h3>Diversity in artists and monopolisation of top charts</h3>
+                        <p>With the line graph below, we wanted to observe the impact of streaming services on the artists or bands who appear on the Billboard Hot 100 chart, more specifically if there is a wide variety of performers on the charts (diversity) or if, on the contrary, if there is only a handful of performers that dominate the charts (monopolisation). Therefore, the lower the average of the number of times artists or bands’ appearances on charts, the more diverse it is because it signifies that more musicians are listened to by the general public. </p>
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/49.embed"></iframe>
+                        <p>This line graph shows that there is no overall trend regarding the average number of times artists or bands have appeared on the Billboard Hot 100 chart from 1980 to 2019 but that the data fluctuates. Before 1998, the average of musicians’ appearances on charts does not show drastic changes ranging between 14 and 18. However, in 1999, the mean of musicians’ appearances on the chart increased remarkably up to 30% suggesting that something significant happened that year. Furthermore, the period after 2015 appears to have a strong decrease to %, going from 19.8 to 9.4. Given our assumptions, the latter implies that a wider panel of artists was listened to. Following the introduction and popularisation of streaming services around 2005, there is a general increase until 2015  and then a strong decrease, with the average reaching its maximum value and its minimum value 2012 in 2019. In order to confirm the relationship between the mean of musicians’ appearances on the chart and Spotify’s user growth, we conducted a Spearman’s correlation (due to their non-term nature)</p>
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/54.embed"></iframe>
+                        <iframe width="100%" height="110" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/40.embed"></iframe>
+                        <p><br>The table shows that the mean of musicians’ appearances on the chart and Spotify’s user growth are strong negatively correlated. In other words, as the popularity of Spotify grows, the average number of artists’ appearances on Billboard decreases. </p>
+                        <p>Nevertheless, we can make a limited analysis of the diversity and monopolisation of top chart based solely on this line graph. Hence, we have traced another line representing the total number of artists that have appeared on the top charts, excluding  “featuring”. </p>
+                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/57.embed"></iframe> 
+                        <p><br>This updated line graph shows that the yearly average of artists’ appearances on charts is inversely correlated to the yearly total number of artists on charts. The yearly total number of artists on the charts has a general decreasing trend. This can be explained by the fact that, when observing the raw data, we can see that more featuring tracks have appeared in the charts in the last couple of years, and since we haven’t included them due to clarity purposes, the total number of artists appears to be low. We can split this updated line graph into 3 distinct periods: pre-1999, 1999-2015 and 2015-2019. In the first period, the difference between the two lines is small, overlapping at times, implying that there is diversity. The total number of artists decreases only by 17% in this period. However, between 1999 and 2015, the large gap between the two sets of data indicates that the average of the number of artists’ appearances on charts is heavily influenced upwards by a few exceptions since the total number decreases until hitting its minimum in 2012. However, post-2015, the difference between the two becomes smaller once more, meaning that there is an increasingly wider variety of performers on the charts.
+                        From a streaming services perspective, the post-2015 shift can be explained by the fact that streaming services have doubled in that year <a href="https://techcrunch.com/2016/01/07/nielsen-music-streams-doubled-in-2015-digital-sales-continue-to-fall/">(Perez, 2015)</a>
+                        </p>
+                        <p>In order to better visualise and understand the impact and scope of dominating musicians in the Billboard Hot 100 chart, we have plotted the raw data into a boxplot with visible outliers. Hover over the outliers with your mouse to see which artist or band has generally more appearances each year! You can also focus on only 5 years at a time, just click the option below and move the boxplot:</p>
+                         <iframe width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/58.embed"></iframe>
+                    <p><br>This boxplot shows the spread of artists’ appearances on the Billboard chart from 1980 to 2019 which is overall positively skewed, meaning that the number of artists with few appearances is bigger. We can observe that pre-2004, before the popularisation of streaming services, the outliers have barely surpassed 100, reaching maximum 103 in 1995, while post-2004, after the popularisation of streaming services, the outliers reach much higher values (167 in 2018 by Ariana Grande) with generally negatively skewed. These observations confirm our previous claims from the updated line graph but refute our initial hypothesis: The diversity of artists decreased with the popularisation of streaming services making a few artists have a  monopoly on popular music. </p>
+                    </div>
 					<div class="box">
                         <h3>breakout artists</h3>
                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/11.embed"></iframe>
@@ -84,18 +112,7 @@
                         <br> 8.54e-08 &lt; 0.05 : As the calculated p-value is less than 0.05 we can reject the null hypothesis and accept the alternative hypothesis. There is evidence to conclude that the number of artists breaking into the billboard top 100 was higher before the introduction of streaming services.
 
                         </p>
-                        <!--MALINA
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
                         
-                       <div style="height:470px;overflow:hidden;"><iframe id="frame" width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/23.embed"></iframe></div>
-                         
-                       <div style="height:650px;overflow:hidden"><iframe id="frame" width="100%" height="780" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/21.embed"></iframe></div>
-                        -->
-                        <!--TIFFANY NEW
-                        <div style="height:620px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/39.embed"></iframe></div>
-                        
-                        <div style="height:580px;overflow:hidden"><iframe id="frame" width="100%" height="720" frameborder="0" scrolling="no" src="//plot.ly/~thisistiff/30.embed"></iframe></div>
-                        -->
 					</div>
                     <div class="box">
                         <h3>weeks on chart</h3>

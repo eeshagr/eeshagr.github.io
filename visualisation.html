@@ -68,6 +68,7 @@
 				<section id="main" class="container">
 					<header>
 						<h2>Visualisation</h2>
+                        <h5>This section explains how we used python to visualise our two data sets. For each graph we made it explains the basic process we followed, why the graphic style was chosen, and the difficulties we ran into along the way. For a more detailed explanation of the code, click <a href="https://notebooks.azure.com/malina-bodea-18/projects/qm2-streaming-services-project">here</a>. </h5>
 					</header>
                     
 					<div class="box">
@@ -100,7 +101,7 @@
                     <div class="box">
                     <h4>Histograms: Average number of weeks that songs spend on the billboard top 100 every year and the number of new artists breaking into the billboard top 100 every year</h4>
                         <ul>
-                        <li><i>Why did we choose this visualisation:</i> Once we had understood the basic trend by interpreting the line graph, we wanted to investigate the consequences of introducing streaming services more closely. To do this we choose to make histograms of the post and pre streaming data. The distinction between the two was set at 2007, the year Billboard started incorporating data from streaming services <b>**SOURCE THIS**</b>. Histograms were selected for this exploration so we could compare the distributions of pre and post streaming data. Furthermore, histograms also inform what statistical test can be carried out on the data.
+                        <li><i>Why did we choose this visualisation:</i> Once we had understood the basic trend by interpreting the line graph, we wanted to investigate the consequences of introducing streaming services more closely. To do this we choose to make histograms of the post and pre streaming data. The distinction between the two was set at 2007, the year Billboard started incorporating data from streaming services <a href="https://www.billboard.com/articles/news/1050326/billboard-hot-100-to-include-digital-streams">(Billboard, 2007)</a>. Histograms were selected for this exploration so we could compare the distributions of pre and post streaming data. Furthermore, histograms also inform what statistical test can be carried out on the data.
                         </li>
                         <li><i>How did we do it:</i> To construct the histograms we first created two new data sets, one with the pre streaming data and the second with the post streaming data. This was done by selecting sections from the data frame used to create the line graphs, by utilising the iloc function of the pandas library. The new data frames were then plotted as layered histograms using Plotly.
                         </li>
@@ -109,7 +110,7 @@
                     <div class="box">
                     <h4>T-test: Number of new artists breaking into the billboard top 100 every year</h4>
                         <ul>
-                        <li><i>Why did we choose this visualisation:</i> While analysing the differences between the pre and post streaming histograms, we wanted to carry out a statistical test to check whether the variation between the two was significant. To do this we decided to use a <a href="https://www.investopedia.com/terms/t/t-test.asp">t-test</a>, as it compares the average values of two samples to determine whether they came from the same population. Furthermore, the histograms for this consumption feature showed that both the post and pre streaming data had approximately normal distributions, which is a condition that must me be satisfied to carry out a t-test. 
+                        <li><i>Why did we choose this visualisation:</i> While analysing the differences between the pre and post streaming histograms, we wanted to carry out a statistical test to check whether the variation between the two was significant. To do this we decided to use a <a href="https://www.investopedia.com/terms/t/t-test.asp">t-test</a> (Kenton, 2019), as it compares the average values of two samples to determine whether they came from the same population. Furthermore, the histograms for this consumption feature showed that both the post and pre streaming data had approximately normal distributions, which is a condition that must me be satisfied to carry out a t-test. 
                         </li>
                         <li><i>How did we do it:</i> The test was carried out on the two groups of data used to build the histograms by employing scipy, a python library with an inbuilt module for conducting a t-test. The resulting test statistic and p-value was then displayed on a table using Plotly. 
                         </li>
@@ -164,8 +165,8 @@
                         <h4>BoxPlot: Monopolisation of top charts by artists </h4>
                         <ul>
                         <li><i>Why did we choose this visualisation:</i> We used boxplot to visualise the data regarding the number of appearances artists or bands have each year in order to view the distribution of the values. It gives us an idea of how much the outliers weighted on the calculation of the average that we did in the previous graph we made. </li>
-                        <li><i>How did we do it:</i> We used the yearly data files that were created with the previous visualisations that contain the musicians’ names and their number of appearances. We used four different Python libraries: pandas, matplotlib, seaborn and plotly. In order to have all of the data into one single data frame, we created an empty data frame in which we added the data and their respective year by using a loop. We then cleaned the data of any “Featuring” and “&” parts in the artist name column. Using plotly express, we first plotted the data with all of the points showing (Plotly, 2019) 
-                         <iframe width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/58.embed"></iframe>
+                        <li><i>How did we do it:</i> We used the yearly data files that were created with the previous visualisations that contain the musicians’ names and their number of appearances. We used four different Python libraries: pandas, matplotlib, seaborn and plotly. In order to have all of the data into one single data frame, we created an empty data frame in which we added the data and their respective year by using a loop. We then cleaned the data of any “Featuring” and “&” parts in the artist name column. Using plotly express, we first plotted the data with all of the points showing <a href="https://plot.ly/python/">(Plotly, 2019)</a>. 
+                         <iframe width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/62.embed"></iframe>
                         
                         However, the graph looked noisy and was difficult to understand. We then decided it would be more compelling to only show the outliers for each year. We also added an interactive timeline in which we added three options (all, every year, every 5 years) using plotly’s guide (Plotly,2019) 
 

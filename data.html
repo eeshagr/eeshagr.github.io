@@ -68,6 +68,7 @@
 				<section id="main" class="container">
 					<header>
 						<h2>Data</h2>
+                        <h5>This section describes the two datasets we used to conduct our analysis. It also provides an explanation of where and how we obtained the data. For a more detailed explanation of the code, click <a href="https://notebooks.azure.com/malina-bodea-18/projects/qm2-streaming-services-project">here.</a></h5>
                         
 					
 					</header>
@@ -78,7 +79,9 @@
                         
                     <p>
                     This program scrapes the Billboard music chart website and records the Hot 100 songs every week within a certain period.
-                    </p><p>
+                    </p>
+                        <p>We chose Billboard as our data source because it is a popular music chart in America and the UK. Billboard has been used in many studies as a scale of popularity (eg. Lopes, 1992; Pettijohn & Sacco 2009).</p>
+                        <p>
                     The program uses Beautiful Soup for webscraping. The datetime module is also used to compare and iterate time, while the time module is used to delay the looping so that the IP address won’t be blocked.
                     </p>
                     <h4>Inputs and outputs</h4>    
@@ -185,6 +188,9 @@ while date &lt; scrapeUntil:
 										</table>
 									</div>
                         <p>Why 2 datasets? The first dataset allows us to look into granular changes between years. However, since it only includes the top 100 Billboard songs of the year, there isn’t enough data to form accurate conclusions about general trends. The second dataset includes every Billboard Hot 100 song that appeared on the charts within a certain decade, which amounts to an average of 3720 songs per decade (372 songs per year). This dataset is therefore used to look at overall trends in audio features through decades, but not specific changes that could solely evidence a correlation between production choices and the introduction of streaming services.</p>
+                        <p>
+We chose Spotify as our data source because Spotify made it easy to access their open source data. This is likely in efforts to encourage developers and businesses to take interest in the platform. Spotify acquired the company Sonalytic, which specialised in making the algorithms to detect and process audio features, suggesting that the data is reliable (McIntyre, 2017). 
+</p>
                         <p>This program was used to scrape specified spotify playlists from a chosen user, retrieving the song URIs of every song in the playlists. Then, using song URIs, Spotify audio features for every song were searched and written into a CSV file. </p>
                         <p>The <a href="https://spotipy.readthedocs.io/en/latest/">spotipy</a> module, a library for using the Spotify Web API, was used to search spotify for song data and audio features. </p>
                         <h4>Inputs and outputs</h4>

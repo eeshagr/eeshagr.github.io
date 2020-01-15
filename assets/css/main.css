@@ -188,6 +188,7 @@
 		font-size: 0.9em;
 		line-height: 1.5em;
 		letter-spacing: 0;
+        text-align:left;
 	}
 
 	h6 {
@@ -3865,7 +3866,7 @@ a.next:hover .fa-chevron-right {
 }
 
 .spotifyy td {
-    height:110px;
+    height:110px;a
     
 }
 

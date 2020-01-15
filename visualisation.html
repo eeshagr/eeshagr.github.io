@@ -80,7 +80,7 @@
                         <li><i>How did we do it:</i> In the Billboard Hot 100 data, we have the name of the artists that have appeared on the chart for each week from 1980 to 2019. Using this data we planned to mark the first appearance of every artist on the chart, and then count the number of first appearances each year as a representation of the number of new artists breaking into the Billboard Hot 100 each year. Before beginning, we realised that any results we produce from our existing data set would be a misrepresentation, because for the initial entries in our data set all artists would appear to be new artists. To overcome this we ran the web scraping code once again, to collect Billboard data from 1960-1980. We then imported the 1960-80 data and the 1980-2019 data as date frames. Next, we merged the two data sets, using the concat function of the Pandas library, creating a data frame with 1960-2019 Billboard data. Following this we used Pandas’ groupby function to group the data by artist's name and select the  first element of each group to represent the first appearance of each artist. Initially we intended to use this data to create our line graph. However, once we looked at the raw data we found that songs by multiple artists registered as new debuts, thus greatly skewing the data. We attempted to combat this by removing all entries that had ‘Featuring’ and ‘&’ in the string under artist name. Thereafter, the date information in the data frame was converted to datetime format using the datetime library. This allowed us to select our desired years (1980-2019), and then group the data by year. We then counted the size of each group to represent the number of breakout artists on the chart each year. This data was then plotted on a line graph using Plotly.
                         </li>
                         </ul>
-                        <iframe width="100%" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/17.embed"></iframe> 
+                        <iframe width="800" height="800" frameborder="0" scrolling="no" src="//plot.ly/~apara02/17.embed"></iframe> 
                     </div>
                     <div class="box">
 
@@ -122,6 +122,71 @@
 
                         </li>
                         <li><i>How did we do it:</i> The test was carried out on the two groups of data used to build the histograms by employing scipy, a python library with an inbuilt module for conducting a t-test. The resulting test statistic and p-value was then displayed on a table using Plotly. 
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h4>Line graphs: Average lifetime of a no.1 Billboard song</h4><h5>Line graphs: rank vs time spent on chart</h5>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> Line graphs allow is to see the average progression in rank of a top song over time, referred to as its lifespan. A line for every song can be plotted on the figure without it being too congested, allowing the reader to see how specific songs progress in the ranks in comparison to the general trend. Filled areas were also used to show one standard deviation above and below the mean. The use of translucent filled areas were effective in allowing the viewer to see how the ranks varied without blocking the plots of the songs behind it.The y-axis is reversed because it is intuitive that the peak of the curve represents when the song is at number 1. </li>
+                        <li><i>How did we do it:</i> Using datetime module, we created a function that plots the rank vs. time of Billboard number 1 songs for a given period. In this function, the necessary dated is selected through conditions and the date is normalised to make sure all songs are plotted from week 0. The mean and the standard deviation of each data point is calculated using numpy functions nanmean and nanstd respectively. The data is split so that only the first lifetime is plotted. This is because if a song comes back on the charts weeks after it left, it creates errors with the continuity and the plotting of the standard deviations. The sliders are set up to make traces visible depending on the year. Lastly, the plotting function is executed for every year, using a for loop and datetime functions.  
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h4>Line graphs: Spotify audio features over time</h4><h5>Line graphs: audio features over time</h5>
+                        <ul>
+                        <li><p><i>Why did we choose this visualisation:</i> Plotting multiple lines on the same axis are a simple but effective way to visualise how audio features of popular songs have changed in comparison to each other. A linear regression was used to show overall trends in audio features. This is because most features showed a either a relatively linear or ambiguous progression, and did not overtly show polynomial or logarithmic trends, with the exception of acousticness in the decade data, which as a curved shape.</p><p>The drop down bar and the options on the sidebar allows the viewer to isolate chosen audio features in any combination, allowing the viewer to focus on specific audio features at their discretion.</p><p>For instrumentalness, the definition explains how the measure is meant to be a binary value of either 1 or 0 - the song contains vocals or it does not. Therefore, conditions are set so that if the instrumentalness value is below 0.5, it is changed to 0, otherwise it is changed to 1.</p><p>Average energy and average duration were plotted with two regression lines as it they showed clear peaks and upward/downward linear trends. Average duration was plotted on a separate graph because duration isn’t a measure between 0 and 1, unlike all the other audio features we analysed.</p></li>
+                        <li><i>How did we do it:</i> The pandas function groupby().mean() was used to produce an average for every audio feature every year or decade. The scipy stats function was used to obtain the slope for the linear regression line as well as r values, p values and standard error. The averages and linear regressions were then plotted as traces on a figure. These traces were manipulated to be visible or not depending on the button options for the drop down menu. 
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h4>Radar chart: Spotify audio features through time</h4><h5>Radar chart: audio features over time</h5>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> The radar chart is an alternative way to view how audio features of popular songs have changed through time. Although it does not add any new information to the line graphs, this interactive plot allows the viewer to see the change in audio features as snapshots in time. Removing time from the axes allows the reader to focus on the audio features and their development. The area and shapes produced also provides a memorable and unique way of visually digesting how audio features change in relation to each other. </li>
+                        <li><i>How did we do it:</i> The Spotify data was processed in the same way as the line graphs - using groupby().mean() and adjust values of instrumentalness to either 0 or 1. The scatterpolar function from plotly was used to plot the data for each year as traces on a figure. All plots, except for the first trace, are initially set as invisible. The steps of the sliders are then formatted and applied using the update_layout function. 
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                    <h4>Line graph: Average number of artist names’ appearances on the top chart from 1980 to 2019</h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> In our project, we used line graphs mainly in order to express trends that arose from top charts, Billboard Hot 100 Data, throughout time. The purpose of this plot is to determine whether the diversity of artists in top charts has fluctuated since the popularisation of streaming services which we’ve set around 2005. 
+                        </li>
+                        <li><p><i>How did we do it:</i> In the web scraped Billboard Hot 100 data, we have the name of the artists that have appeared on the chart for each week from 1980 to 2019. Therefore, the number of times an artist's name appears translates to how much he was listened to, how popular he was with the general public. Because the web scraped Billboard Hot 100 data is weekly, we first counted the number of times each artist appeared on the chart for each year using the function count and date.time. Using a loop function, we created a CSV file for each year containing 2 columns: “Artists’ Name” and “Number of time they have appeared on charts”. We were interested to see the progression of the data over time, therefore we decided to take the average of each year and plot it as a line graph. In order to achieve that, we created an empty data frame in which we put all the averages that we calculated with their respective year by using a loop and Python’s operation system “os”. The averages were calculated using the function .mean( ). Furthermore, we allocated a year to each mean by having the loop run through a range from 1980 to 2020 each time. However,  we ran into some difficulties when we ran the code the first few couples of times: the table was displayed, however, the file we run in a random order rather than a decreasing manner. When we realised that there was an error, we fixed it by using the function “sorted”.</p> 
+                        <p>Moreover, we cleaned the data of any “Featuring” and “&” from the artist name column since those are composed of multiple artists and not a different artist. Then, we adapted the code displayed on the Plotly website for the line graph visualisation (Plotly, 2019). In the visualisation, we added an interactive time slider that allows re-focusing the visualisation on certain periods of time(Plotly,2019). To do that we updated the figure’s layout and added a dictionary with yearly functions that were already provided by Plotly. We also measured the total number of artists on the charts for each year (excluding the features) using the len() function. The two line graphs plotted together gave an account of how diverse in terms of musicians the charts where every year: the lower the mean of appearances pared a relatively high total number of artists, the more diverse the pool of artists is. </p>
+                        However, the mean does not tell the full story since it only shows an overall value. Hence, we decided to create an additional boxplot graph to show the outliers that may have hugely influenced the means. 
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h4>BoxPlot: Monopolisation of top charts by artists </h4>
+                        <ul>
+                        <li><i>Why did we choose this visualisation:</i> We used boxplot to visualise the data regarding the number of appearances artists or bands have each year in order to view the distribution of the values. It gives us an idea of how much the outliers weighted on the calculation of the average that we did in the previous graph we made. </li>
+                        <li><i>How did we do it:</i> We used the yearly data files that were created with the previous visualisations that contain the musicians’ names and their number of appearances. We used four different Python libraries: pandas, matplotlib, seaborn and plotly. In order to have all of the data into one single data frame, we created an empty data frame in which we added the data and their respective year by using a loop. We then cleaned the data of any “Featuring” and “&” parts in the artist name column. Using plotly express, we first plotted the data with all of the points showing (Plotly, 2019) 
+                         <iframe width="100%" height="550" frameborder="0" scrolling="no" src="//plot.ly/~mioana.bodea/58.embed"></iframe>
+                        
+                        However, the graph looked noisy and was difficult to understand. We then decided it would be more compelling to only show the outliers for each year. We also added an interactive timeline in which we added three options (all, every year, every 5 years) using plotly’s guide (Plotly,2019) 
+
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h4>Spearman’s Correlation</h4>
+                        <ul>
+                        <li><i>Why did we choose this method:</i> he Spearman’s correlation account for the monotonic relationship between paired data. We used this correlation to calculate the relationship between the average number of artists’ appearances and Spotify’s active users’ growth from 2010 to 2019. Both match the assumptions requirements which are interval or ratio level or ordinal and to be monotonically related. We used the guide provided by <a href="http://www.statstutor.ac.uk/resources/uploaded/spearmans.pdf">statstutor</a> (2019) to analyse the relationship:
+                            <br>00-.19 “very weak”  
+                            <br>.20-.39 “weak”  
+                            <br>.40-.59 “moderate”  
+                            <br>.60-.79 “strong”  
+                            <br>.80-1.0 “very strong”
+	                       <br>“The closer r is to ±1 the stronger the monotonic relationship”
+                            </li>
+                        <li><i>How did we do it:</i> First, we get the values from the respective data frames and define each one. Then we the function scpiy from the python library stats that calculates a Spearman’s relationship automatically.
+<pre style="margin-bottom:0;margin-top:1em">art_mean = df_joined['Artist Mean'].values
+s_user = df_joined['Spotify Active Users (MM)'].values
+stats.spearmanr(art_mean,s_user)</pre>
                         </li>
                         </ul>
                     </div>
